@@ -1,0 +1,16 @@
+name: Docker
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    ‐ name: build-push
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ DOCKER_USERNAME }}
+        password: ${{ DOCKER_PASSWORD }}
+        repository: jeggy/mssql
+        tags: v1
