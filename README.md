@@ -14,14 +14,14 @@ version: '3.6'
 
 services:
   mssql:
-    image: registry.gitlab.com/apurebase/docker/mssql
+    image: jeggy/mssql
     volumes:
       - mssql_data:/var/opt/mssql
-      - ./sqls:/scripts/
+      - ./sqls:/scripts/  # Will execute all SQL scripts within this directory
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD: LongPassword@Developer
-      ON_START_SQL: 'CREATE DATABASE CUSTOM_DB;'
+      ON_START_SQL: 'CREATE DATABASE CUSTOM_DB;' # Will execute this upon every boot
     ports:
       - 4444:1433
 
