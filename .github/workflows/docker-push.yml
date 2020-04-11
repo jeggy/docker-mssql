@@ -7,10 +7,12 @@ on:
 
 jobs:
   build:
-    ‐ name: build-push
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ DOCKER_USERNAME }}
-        password: ${{ DOCKER_PASSWORD }}
-        repository: jeggy/mssql
-        tags: v1
+    runs-on: ubuntu-latest
+    steps:
+      - name: build-push
+      - uses: docker/build-push-action@v1
+        with:
+          username: ${{ DOCKER_USERNAME }}
+          password: ${{ DOCKER_PASSWORD }}
+          repository: jeggy/mssql
+          tags: v1
